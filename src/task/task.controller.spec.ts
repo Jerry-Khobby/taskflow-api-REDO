@@ -69,7 +69,7 @@ describe('TasksController', () => {
   it('should delete a task', () => {
   mockTasksService.delete.mockReturnValue(undefined);
 
-  const result = controller.remove('2');
+  const result = controller.remove('1');
 
   expect(mockTasksService.delete).toHaveBeenCalledWith(1);
   expect(result).toEqual({ message: 'Task deleted' });
