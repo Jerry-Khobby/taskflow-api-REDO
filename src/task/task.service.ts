@@ -30,5 +30,10 @@ export class TasksService{
     return task;
   }
 
+  //get all task 
+  findAll():Task[]{
+    return this.tasks;
+  }
+
   
 }
