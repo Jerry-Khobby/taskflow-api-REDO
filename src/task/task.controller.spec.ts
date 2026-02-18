@@ -7,6 +7,7 @@ describe('TasksController', () => {
 
   const mockTasksService = {
     create: jest.fn(),
+    findAll:jest.fn(),
   };
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

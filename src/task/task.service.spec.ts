@@ -14,4 +14,10 @@ describe('TasksService', () => {
     expect(task.status).toBe('todo');
   });
 
+  it('should return all tasks',()=>{
+   service.create('Task 1'),
+  service.create('Task 2')
+    expect(service.findAll()).toHaveLength(2);
+  })
+
 });
