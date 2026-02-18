@@ -31,4 +31,11 @@ export class TasksController{
   ) {
     return this.tasksService.updateStatus(Number(id), body.status);
   }
+
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    this.tasksService.delete(Number(id));
+    return { message: 'Task deleted' };
+  }
 }
