@@ -20,4 +20,18 @@ describe('TasksService', () => {
     expect(service.findAll()).toHaveLength(2);
   })
 
+  it('should update task status',()=>{
+    const task = service.create('Test Task');
+
+    const updatedTask = service.updateStatus(task.id, 'in-progress');
+
+    expect(updatedTask.status).toBe('in-progress');
+  })
+
+  it('should throw error if task does not exist', () => {
+    expect(() => {
+      service.updateStatus(999, 'done');
+    }).toThrow(NotFoundException);
+  });
+
 });
