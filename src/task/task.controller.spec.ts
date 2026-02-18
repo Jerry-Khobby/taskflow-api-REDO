@@ -1,18 +1,40 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TaskController } from './task.controller';
+import { TasksController } from './task.controller'; 
+import { TasksService } from './task.service';       
 
-describe('TaskController', () => {
-  let controller: TaskController;
+describe('TasksController', () => {
+  let controller: TasksController;
 
+  const mockTasksService = {
+    create: jest.fn(),
+  };
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [TaskController],
+      controllers: [TasksController],
+      providers: [
+        {
+          provide: TasksService,
+          useValue: mockTasksService,
+        },
+      ],
     }).compile();
 
-    controller = module.get<TaskController>(TaskController);
+    controller = module.get<TasksController>(TasksController);
+    jest.clearAllMocks();
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  it('should create a task', async () => {
+    const mockTask = {
+      id: 1,
+      title: 'Test Task',
+      description: 'A description',
+      status: 'todo',
+      createdAt: new Date(),
+    };
+    mockTasksService.create.mockReturnValue(mockTask);
+    const result = controller.create({ title: 'Test Task', description: 'A description' });
+    expect(mockTasksService.create).toHaveBeenCalledWith('Test Task', 'A description');
+    expect(result).toEqual(mockTask);
   });
+
 });
