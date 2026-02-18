@@ -57,7 +57,7 @@ describe('TasksController', () => {
 
     mockTasksService.updateStatus.mockReturnValue(updatedTask);
 
-    const result = controller.updateStatus('1',{status:'in-progress'}); 
+    const result = controller.updateStatus('1',{status:'done'}); 
 
     expect(mockTasksService.updateStatus).toHaveBeenCalledWith(1, 'done');
     expect(result).toEqual(updatedTask);
