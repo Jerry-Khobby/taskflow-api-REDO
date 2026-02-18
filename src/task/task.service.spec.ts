@@ -34,4 +34,17 @@ describe('TasksService', () => {
     }).toThrow(NotFoundException);
   });
 
+  it('should delete a task',()=>{
+    const task = service.create('Task to delete');
+
+    service.delete(task.id)
+    expect(service.findAll().length).toBe(0)
+  });
+
+  it('should throw error when deleting non-existing task',()=>{
+    expect(()=>{
+      service.delete(999);
+    }).toThrow(NotFoundException)
+  })
+
 });

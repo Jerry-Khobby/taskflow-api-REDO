@@ -9,6 +9,7 @@ describe('TasksController', () => {
     create: jest.fn(),
     findAll: jest.fn(),
     updateStatus: jest.fn(),
+    delete:jest.fn()
   };
 
   beforeEach(async () => {
@@ -63,4 +64,14 @@ describe('TasksController', () => {
     expect(result).toEqual(updatedTask);
   });
 
+
+  //delete tasks
+  it('should delete a task', () => {
+  mockTasksService.delete.mockReturnValue(undefined);
+
+  const result = controller.remove('2');
+
+  expect(mockTasksService.delete).toHaveBeenCalledWith(1);
+  expect(result).toEqual({ message: 'Task deleted' });
+});
 });
