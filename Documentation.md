@@ -202,11 +202,11 @@ This establishes automated feedback loops.
 
 ### POST /tasks
 
-![Screenshot of POST /tasks](./screenshots/post.png)
+![Screenshot of POST /tasks](./screenshots/post-tasks.png)
 
 ### GET /tasks
 
-![Screenshot of GET /tasks](./screenshots/get.png)
+![Screenshot of GET /tasks](./screenshots/get-tasks.png)
 
 ---
 
@@ -290,11 +290,11 @@ This improves:
 
 ### PATCH /tasks/:id
 
-![Screenshot](./screenshots/patch.png)
+![Screenshot](./screenshots/patch-tasks.png)
 
 ### DELETE /tasks/:id
 
-![Screenshot](./screenshots/delete.png)
+![Screenshot](./screenshots/delete-tasks.png)
 
 ### GET /health
 
